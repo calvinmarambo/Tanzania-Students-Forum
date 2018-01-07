@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Display
+{% endblock %}
+
+{% block main %}
+
+<th ><h2 style="color:purple;">Ranking users based on number of questions asked</h></th>
+<style>
+    .bar {
+      fill: steelblue;
+    }
+
+    .bar:hover {
+      fill: brown;
+    }
+
+    .axis--x path {
+      display: none;
+    }
+</style>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="/static/scripts.js"></script>
+<!--<script src="/static/category.js"></script>-->
+
+{% endblock %}

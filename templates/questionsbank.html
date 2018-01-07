@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All questions
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><h1 align="justify" style="color:purple;">Questions bank</h1></th>
+        </tr>
+        <tr>
+            <th>Question </th>
+            <th>Category</th>
+            <th>Date Posted</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question in questions %}
+            <tr align="left">
+                <td><a href={{question["link"]}}>{{question["question"]}}</a></td>
+                <td>{{question["category"]}}</td>
+                <td>{{question["time"]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

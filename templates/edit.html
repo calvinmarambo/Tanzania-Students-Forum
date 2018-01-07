@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}
+
+    <h3 style="color:purple;" align = "left">Your Question: {{question}}</h3>
+    <form action="/edit" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="edit" placeholder="Edit" type="text"/>
+        </div>
+        <div>
+            <input autocomplete="off" autofocus class="form-control" name="category" placeholder="Category" type="text"/>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Edit</button>
+        </br>
+    </form>
+{% endblock %}

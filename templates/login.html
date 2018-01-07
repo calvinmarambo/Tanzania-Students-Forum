@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+<th><h2 align="Left" style="color:purple;">Hello! Join fellow students across the country on a Q & A platform</h2></th>
+<th><h4 align="Left" style="color:blue;">To begin, register or login below</h4></th>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password"/>
+        </div>
+        <span class="checkbox"style="float:left;">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+        </span>
+
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+{% endblock %}

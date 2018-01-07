@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- documentation at http://getbootstrap.com/docs/4.0/, alternative themes at https://bootswatch.com/4-alpha/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="/static/styles.css" rel="stylesheet"/>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+        <title>Tanzania Students Forum: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+            <a class="navbar-brand" href="/"><span class="green">Tanzania</span> <span class="yellow">Stud</span><span class="black">ents</span> <span class="yellow">For</span><span class="blue">um</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                    <br>
+                    <span style="float:left;">
+                        <a class="nav-link" href="/askquestion">Ask Question</a>
+                    </span>
+                    <span style="float:left;">
+                        <a class="nav-link" href="/explore">Explore</a>
+                    </span>
+                    <span style="float:right;">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </span>
+                    <span style="float:right;">
+                        <a class="nav-link" href="/changepassword">Change password</a>
+                    </span>
+                     <span style="float:left;" font-size:100px>
+                        <a class="nav-link" href="/display">Analytics</a>
+                    </span>
+
+
+                    <li id="search">
+                        <form action="/search" method="post" class="form-inline my-2 my-lg-0" style="float:left;">
+                            <input autocomplete="off" autofocus class="form-control" name="search" placeholder="Search" type="text"/>
+                            <button class="btn btn-primary" type="submit">Search</button>
+                            <br>
+                        </form>
+                    </li>
+                {% else %}
+                    <br>
+                    <span style="float:right;">
+                        <a class="nav-link" href="/login">Log In</a>
+                    </span>
+                    <span style="float:right;">
+                        <a class="nav-link" href="/register">Register</a></a>
+                    </span>
+                    <span style="float:left;">
+                        <a class="nav-link" href="/changepassword">Change password</a>
+                        <br>
+                    </span>
+                {% endif %}
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+
+    </body>
+
+</html>

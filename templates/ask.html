@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ask Question
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:purple;" align="justify">Wanna learn from others? Post your question below!</h2></th>
+<form action="/askquestion" method="post">
+    <div class="form-group">
+
+        <input autocomplete="off" autofocus class="form-control" name="question" placeholder="What is your question?" type="text"/>
+    </div>
+
+    <div>
+        <input autocomplete="off" autofocus class="form-control" name="category" placeholder="Category" type="text"/>
+    </div>
+
+    <br>
+        <button class="btn btn-primary" type="submit">Ask Question</button>
+    </br>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <h2 align="justify">Recently asked Questions</h2></th>
+        </tr>
+        <tr>
+            <th>Question </th>
+            <th>Category</th>
+            <th>Date Posted</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in range(questions|length) %}
+        <tr align="left">
+            <td><a href={{questions[i]["link"]}}>{{questions[i]["question"]}}</a></td>
+            <td>{{questions[i]["category"]}}</td>
+            <td>{{questions[i]["time"]}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

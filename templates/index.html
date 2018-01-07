@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Question Index
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+            <h1 align="center" style="color:purple;">Hi {{name["username"]}} from {{name["schoolname"]}}!</h1>
+            <th><h2 align="justify">Your Questions</h2></th>
+        <tr>
+            <th>Question </th>
+            <th>Category</th>
+            <th>Date Posted</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in range(questionrows|length) %}
+        <tr align="left">
+            <!--<td>{{questionrows[i]["question"]}}</td>-->
+            <td><a href={{questionrows[i]["link"]}}>{{questionrows[i]["question"]}}</a></td>
+            <td>{{questionrows[i]["category"]}}</td>
+            <td>{{questionrows[i]["time"]}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
